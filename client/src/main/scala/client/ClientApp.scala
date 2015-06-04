@@ -14,7 +14,7 @@ object ClientApp extends js.JSApp {
   def main(): Unit = {
     println("Hello from the client")
     jQuery(setupUi _)
-    Ajax.get("/previousRecordings").onSuccess({ case xhr =>
+    Ajax.get("/recordings").onSuccess({ case xhr =>
       val payload = js.JSON.parse(xhr.responseText)
       showRecordedBmi(payload.recordings.asInstanceOf[js.Array[js.Dynamic]])
     })
@@ -44,7 +44,7 @@ object ClientApp extends js.JSApp {
     val items = recordings.map(recording => {
       val bmi = Calcs.bmi(recording.weight.asInstanceOf[Double],
                           recording.height.asInstanceOf[Double])
-      s"<li>Date: ${recording.date}, Weight: ${recording.weight}, Height: ${recording.height}, BMI: ${bmi}</li>"
+      s"<li>Date: ${recording.date}, Weight: ${recording.weight}, Height: ${recording.height}, BMI: $bmi</li>"
     })
     jQuery("#previousRecordings").append("<h2>Previous recordings</h2>")
     val ul = jQuery("<ul>")
