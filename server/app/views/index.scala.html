@@ -1,0 +1,18 @@
+@main("Playing with Scala.js") {
+
+  <h2>BMI</h2>
+
+  <form>
+    <label>Weight (kg) <input id="weight" type="text"></label>
+    <label>Height (m) <input id="height" type="text"></label>
+    <button id="confirm" default>Calculate BMI</button>
+    <div id="bmiSection" style="display:none">
+      <p>BMI for <span id="today"></span> is <span id="bmi"></span></p>
+      <button id="record">Record for today</span></button>
+    </div>
+  </form>
+
+  <div id="previousRecordings"></div>
+
+  @playscalajs.html.scripts("client")
+}

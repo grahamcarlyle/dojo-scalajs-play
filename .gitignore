@@ -1,0 +1,11 @@
+project/project
+project/target
+target
+client/target
+server/target
+server/logs
+
+.idea
+.project
+.settings
+*~
